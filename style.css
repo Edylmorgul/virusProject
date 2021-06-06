@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Allerta Stencil", sans-serif;
+  user-select: none;
+}
+
+body {
+  text-align: center;
+  min-height: 100vh;
+  background: url(./media/basic-pics/hospital.jpg) no-repeat 0% 0%/cover;
+}
+body #start {
+  margin: 2rem 2rem 0;
+  padding: 1rem 2rem;
+  background: rgba(252, 49, 49, 0.699);
+  border-radius: 5px;
+  color: #eee;
+  border: 1px rgba(128, 128, 128, 0.404) solid;
+  box-shadow: 1px 1px 1px #333;
+  transition: 0.3s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  animation: shadow-pop-br 0.2s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+body #start:active {
+  animation: shadow-back 0.1s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+@keyframes shadow-pop-br {
+  0% {
+    box-shadow: 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb;
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    box-shadow: 1px 1px #bbb, 2px 2px #bbb, 3px 3px #bbb, 4px 4px #bbb, 5px 5px #bbb, 6px 6px #bbb, 7px 7px #bbb, 8px 8px #bbb;
+    transform: translateX(-8px) translateY(-8px);
+  }
+}
+@keyframes shadow-back {
+  0% {
+    box-shadow: 1px 1px #bbb, 2px 2px #bbb, 3px 3px #bbb, 4px 4px #bbb, 5px 5px #bbb, 6px 6px #bbb, 7px 7px #bbb, 8px 8px #bbb;
+    transform: translateX(-8px) translateY(-8px);
+  }
+  100% {
+    box-shadow: 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb, 0 0 #bbb;
+    transform: translateX(0) translateY(0);
+  }
+}
+body #start:hover {
+  box-shadow: 1px 1px 1px #333, inset 0 0 0 40px #ff0000c5;
+  color: black;
+  background: rgba(250, 136, 43, 0.966);
+}
+body .scoreboard {
+  color: #eee;
+  padding-bottom: 1rem;
+}
+body .scoreboard .kills {
+  font-size: 2rem;
+}
+body .scoreboard .kills #score {
+  font-weight: bold;
+  font-size: 3rem;
+  color: #ff0000e1;
+}
+body .scoreboard .confinement {
+  font-size: 1.6rem;
+}
+body .scoreboard .confinement #days {
+  color: #ff0000e1;
+}
+body #canvas {
+  cursor: crosshair;
+  border: none;
+  border-top: 1px rgba(66, 0, 0, 0.561) solid;
+  border-left: 1px rgba(66, 0, 0, 0.561) solid;
+  background: linear-gradient(135deg, #ff00006b 0%, #ff0000da 100%);
+  box-shadow: 0 10px 15px black;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 500px;
+  width: 500px;
+}
+body #canvas .virus {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: var(--y);
+  width: var(--x);
+  --scaler: 1;
+  animation: virusAnim 14s forwards;
+}
+body #canvas .virus:hover {
+  --scaler: 1.05;
+}
+body #canvas .virus:active {
+  --scaler: 0.95;
+}
+@keyframes virusAnim {
+  from {
+    transform: translate(0%, 0%) scale(var(--scaler));
+  }
+  to {
+    transform: translate(var(--trX), var(--trY)) scale(var(--scaler));
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
